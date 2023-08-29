@@ -1,0 +1,52 @@
+{% extends 'main/base.html' %} 
+
+{% block title %}
+Comparisons
+{% endblock %}
+
+{% block content %}
+<br><br>
+
+<section class="jumbotron text-left bg-white">
+    <div class="container">
+        <div class="card-body">
+            <br>
+            <h2 class="text-center">Overall comparison</h2>
+            <br>
+            <center>
+                <p class="text-danger">
+                    {{OverBudget}}
+                </p>
+                <p class="text-success">
+                    {{InBudget}}
+                </p>
+                <p class="text-secondary">
+                    {{MetBudget}}
+                </p>
+                <br>
+                {% load static %}
+                <img class="card-img-top" src="{% static "main/media/CompareBoth.png" %}" alt="Both comparison"/>
+            </center>
+            <br>
+        </div>
+
+        <div class="card-body">
+            <br>
+            <h2 class="text-center">Comparing incomes</h2>
+            <br>
+            {% load static %}
+            <img class="card-img-top" src="{% static "main/media/CompareIncome.png" %}" alt="Comparing incomes"/>
+            <br>
+        </div>
+
+        <div class="card-body">
+            <br>
+            <h2 class="text-center">Comparing outcomes</h2>
+            <br>
+            {% load static %}
+            <img class="card-img-top" src="{% static "main/media/CompareOutcome.png" %}" alt="Comparing outcomes"/>
+            <br>
+        </div>
+    </div>
+</section>
+{% endblock %}

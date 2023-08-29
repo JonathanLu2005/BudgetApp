@@ -1,0 +1,119 @@
+{% extends 'main/base.html' %} 
+
+{% block title %}
+Homepage
+{% endblock %}
+
+{% block content %}
+<br><br>
+<center>
+    <p class="text-danger">
+        {{ErrorMessage}}
+    </p>
+</center>
+<br><br>
+<section class="jumbotron text-left bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="card-body">
+                <h2 class="text-center">Add category</h2>
+                <br>
+                <form method="POST" autocomplete="off">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="AddCategoryIncome">Add new income category</label>
+                    <div class="input-group">
+
+                        <input name="AddingIncomeCategory" type="text" class="form-control" id="AddCategoryIncome"
+                            placeholder="Enter category for income" minlength="1"></input>
+                        <input name="AddingIncomeCategoryColour" type="color" class="form-control form-control-color" id="exampleColorInput" value="#563d7c"
+                            title="Choose your color"></input>
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-dark">Submit</button>
+                        </div>
+
+                    </div>
+                </div>
+                </form>
+                <br>
+                <h2 class="text-center">Type in category income</h2>
+                <br>
+                <form method="POST" autocomplete="off">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="InputCategoryIncome">Add value for income category</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="IncomeCategoryName" name="IncomeCategoryName"
+                            placeholder="Type in category name"></input>
+
+                        <input type="text" class="form-control" id="InputCategoryIncome" name="InputCategoryIncome"
+                            placeholder="Enter value for your category"></input>
+
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-dark">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                </form>
+
+            </div>
+
+                <div class="card-body">
+                    <br>
+                    <h2 class="text-center">Income graph</h2>
+                    <br>
+                    {% load static %}
+                    <img class="card-img-top" src="{% static "main/media/TotalIncomeChart.png" %}" alt="Total Income Chart"/>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="card-body">
+                    <br>
+                    <h2 class="text-center">Add category</h2>
+                    <br>
+                    <form method="POST" autocomplete="off">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="AddCategoryOutcome">Add new outcome category</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="AddCategoryOutcome"
+                                    placeholder="Enter category for outcome" name="AddingOutcomeCategory" minlength="1"></input>
+                                <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#563d7c" name="AddingOutcomeCategoryColour"></input>
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-dark">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <br>
+                    <h2 class="text-center">Type in category outcome</h2>
+                    <br>
+                    <form method="POST" autocomplete="off">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="InputCategoryOutcome">Add value for outcome category</label>
+                                <div class="input-group">
+                                <input type="text" class="form-control" id="OutcomeCategoryName" name="OutcomeCategoryName"
+                                    placeholder="Enter in category name"></input>
+                                <input type="text" class="form-control" id="InputCategoryOutcome" name="InputCategoryOutcome"
+                                    placeholder="Enter value for your category"></input>
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-dark">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+            </div>
+
+            <div class="card-body">
+                <br>
+                <h2 class="text-center">Outcome graph</h2>
+                <br>
+                {% load static %}
+                <img class="card-img-top" src="{% static "main/media/TotalOutcomeChart.png" %}" alt="Total Income Chart"/>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
